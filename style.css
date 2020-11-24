@@ -1,0 +1,129 @@
+* {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    box-sizing: border-box;
+}
+
+html,
+body,
+.container {
+    height: 100vh;
+    overflow: hidden;
+}
+
+.container {
+    display: flex;
+
+    background: url("./assets/login.jpg"), url("./assets/back1.png");
+    background-size: 50%, contain;
+    background-repeat: no-repeat, no-repeat;
+    background-position: 0% 50%, 100% 0%;
+}
+
+.submitted-form {
+    animation: spin-out 2s 1;
+    transform: rotate(360deg) scale(0);
+}
+
+.form-in {
+    animation: spin-in 2s 1;
+}
+
+@keyframes spin-out {
+    from {
+        transform: rotate(0deg) scale(1);
+        opacity: 1;
+    }
+    to {
+        transform: rotate(360deg) scale(0);
+        opacity: 0;
+    }
+}
+
+@keyframes spin-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.form {
+    width: 50%;
+    height: 100%;
+    background: #71c55d;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: 1s;
+}
+
+.form-inputs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.form input {
+    padding: 8px 12px;
+    border: none;
+    margin: 8px;
+    border-radius: 5px;
+    transition: .3s all;
+}
+
+.form input:focus, .form input:active {
+    box-shadow: 0 0 0 3px #71c55d, 0 0 0 6px rgba(0, 0, 0, 0.4);
+}
+
+.form button {
+    width: calc(100% - 16px);
+    margin: 8px auto;
+    border-radius: 5px;
+    border: none;
+    padding: 6px;
+    background: #2cb5e8;
+    color: rgba(255, 255, 255, 1);
+    cursor: pointer;
+    box-shadow: 1px 2px 5px 0px rgba(0, 0, 0, .75);
+    transition: .3s;
+}
+
+.form button:active {
+    box-shadow: .5px 1px 2px 0 rgba(0, 0, 0, .75);
+}
+
+.logo {
+    background-color: #71c55d;
+    border-radius: 100%;
+    margin: 30px;
+    width: 100px;
+    height: 100px;
+    box-shadow: 0 0 0 3px #71c55d, 0 0 0 6px #2cb5e8;
+    transition: 1s all;
+}
+
+.ml-auto{
+    animation: slide-in 1s 1;
+    background: #2cb5e8!important;
+    margin-left: 50%;
+}
+
+@keyframes slide-in {
+    from {
+        margin: 0;
+    }
+    to {
+        margin-left: 50%;
+    }
+}
+
+.cadastro {
+    text-decoration-line: underline;
+    color: white;
+    cursor: pointer;
+}
