@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="container" id="container">
+        <div id="cadastro" class="form">
+
+            <div class="logo" id="logo">
+                <img src="./assets/logo.png" alt="nefro logo" width="100%">
+            </div>
+
+            <div class="form-inputs">
+                <input id="login" type="text" placeholder="Login">
+                <input id="senha" type="password" placeholder="Senha">
+
+                <button type="button" onclick="submit()">Login</button>
+            </div>
+
+            <span id="btnChange" onclick="changeForm()" type="button" class="cadastro">Cadastrar</span>
+        </div>
+    </div>
+
+    <script>
+        var form = document.getElementById("cadastro")
+        var btn = document.getElementById("btnChange")
+        var logo = document.getElementById("logo")
+        var login = document.getElementById("login")
+        var senha = document.getElementById("senha")
+        var all = document.getElementById("container")
+
+
+        const changeForm = () => {
+            form.classList.toggle("ml-auto")
+            btn.innerText = btn.innerText=="Cadastrar"?"Login":"Cadastrar"
+            submit.innerText = btn.innerText=="Cadastrar"?"Login":"Cadastrar"
+            logo.style.boxShadow = "box-shadow: 0 0 0 3px #2cb5e8, 0 0 0 6px #71c55d;"
+            logo.style.backgroundColor = btn.innerText=="Cadastrar"?"#71c55d":"#2cb5e8" 
+            submit.style.backgroundColor = btn.innerText=="Cadastrar"?"#2cb5e8":"#71c55d" 
+            login.style.boxShadow = "box-shadow: 0 0 0 3px #2cb5e8, 0 0 0 6px #71c55d;"
+            senha.style.boxShadow = "box-shadow: 0 0 0 3px #2cb5e8, 0 0 0 6px #71c55d;"
+        }
+
+        const submit = () => {
+            all.classList.remove("form-in")
+            all.classList.add("submitted-form")
+            setTimeout(()=>{
+                all.classList.remove("submitted-form")
+                all.classList.add("form-in")
+            },3000)
+        }
+
+    </script>
+
+</body>
+</html>
