@@ -8,20 +8,28 @@
 </head>
 <body>
     <div class="container" id="container">
-        <div id="cadastro" class="form">
+        <!-- <div id="cadastro" class="form">
 
             <div class="logo" id="logo">
                 <img src="./assets/logo.png" alt="nefro logo" width="100%">
             </div>
 
-            <div class="form-inputs">
+            <div class="form-inputs-login" id="loginForm">
                 <input id="login" type="text" placeholder="Login">
                 <input id="senha" type="password" placeholder="Senha">
 
-                <button type="button" onclick="submit()">Login</button>
+                <button id="loginBtn" type="button" onclick="submit()">Login</button>
             </div>
 
             <span id="btnChange" onclick="changeForm()" type="button" class="cadastro">Cadastrar</span>
+        </div> -->
+        <div class="form" id="formContainer">
+
+            <div class="logo logo-beat" id="logo" onclick="toggleBeat()">
+                <img src="./assets/logo.png" alt="nefro logo" width="100%">
+            </div>
+            <span id="btnChange" onclick="changeForm()" type="button" class="cadastro">Cadastrar</span>
+
         </div>
     </div>
 
@@ -33,16 +41,21 @@
         var senha = document.getElementById("senha")
         var all = document.getElementById("container")
 
+        var formContainer = document.getElementById("formContainer")
+
+        var formLogin = document.getElementById("loginForm")
 
         const changeForm = () => {
+            // formLogin.classList.toggle("d-none")
+            
             form.classList.toggle("ml-auto")
             btn.innerText = btn.innerText=="Cadastrar"?"Login":"Cadastrar"
-            submit.innerText = btn.innerText=="Cadastrar"?"Login":"Cadastrar"
-            logo.style.boxShadow = "box-shadow: 0 0 0 3px #2cb5e8, 0 0 0 6px #71c55d;"
-            logo.style.backgroundColor = btn.innerText=="Cadastrar"?"#71c55d":"#2cb5e8" 
-            submit.style.backgroundColor = btn.innerText=="Cadastrar"?"#2cb5e8":"#71c55d" 
-            login.style.boxShadow = "box-shadow: 0 0 0 3px #2cb5e8, 0 0 0 6px #71c55d;"
-            senha.style.boxShadow = "box-shadow: 0 0 0 3px #2cb5e8, 0 0 0 6px #71c55d;"
+            // submit.innerText = btn.innerText=="Cadastrar"?"Login":"Cadastrar"
+            // logo.style.boxShadow = "box-shadow: 0 0 0 3px #2cb5e8, 0 0 0 6px #71c55d;"
+            // logo.style.backgroundColor = btn.innerText=="Cadastrar"?"#71c55d":"#2cb5e8" 
+            // submit.style.backgroundColor = btn.innerText=="Cadastrar"?"#2cb5e8":"#71c55d" 
+            // login.style.boxShadow = "box-shadow: 0 0 0 3px #2cb5e8, 0 0 0 6px #71c55d;"
+            // senha.style.boxShadow = "box-shadow: 0 0 0 3px #2cb5e8, 0 0 0 6px #71c55d;"
         }
 
         const submit = () => {
@@ -52,6 +65,23 @@
                 all.classList.remove("submitted-form")
                 all.classList.add("form-in")
             },3000)
+        }
+
+
+        var openform = true
+        const toggleBeat = () => {
+            logo.classList.toggle("logo-beat")
+            formContainer.classList.toggle("background")
+
+            if(openform) {
+                formContainer.style.backgroundImage = "none"
+                formContainer.style.width = "50%"
+            }
+            else {
+                formContainer.style.backgroundImage = "linear-gradient(to right, #71c55d, #2cb5e8);"
+                formContainer.style.width = "100%"
+            }
+            openform=!openform
         }
 
     </script>
